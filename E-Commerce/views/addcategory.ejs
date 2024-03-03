@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    
+  </head>
+  <body>
+    <%- include layout %>
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <%- include sidebar %>
+    <!-- /.col-lg-3 -->
+    <div class="col-lg-9 my-4">
+        <h2 align="center">เพิ่มหมวดหมู่สินค้า</h2>
+        <% if(locals.errors) { %>
+              <ul class="alert alert-danger" role="alert">
+                  <% Object.values(errors).forEach(function(error){ %>
+                        <li><%= error.msg %></li>
+                  <% }) %>
+              </ul>
+        <% } %>
+        <form class="" action="/categories/add" method="post">
+            <div class="form-group">
+              <label for="">ชื่อหมวดหมู่</label>
+              <input type="text" name="name" value="" class="form-control">
+            </div>
+            <input type="submit"  value="บันทึกข้อมูล" class="btn btn-success">
+          </form>
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.container -->
+
+
+
+  
+  </body>
+</html>

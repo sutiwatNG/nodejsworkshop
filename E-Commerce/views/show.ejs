@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    
+  </head>
+  <body>
+    <%- include layout %>
+ <!-- Page Content -->
+ <div class="container">
+
+    <div class="row">
+
+     <%- include sidebar %>
+
+      <div class="col-lg-9">
+
+        <div class="card mt-4">
+            <% products.forEach(function(product) { %>
+          <img class="card-img-top img-fluid" src="<%= product.img %>" alt="">
+          <div class="card-body">
+            <h3 class="card-title">ชื่อสินค้า : <%= product.name %></h3>
+            <h4>ราคา : $ <%= formatMoney(product.price) %></h4>
+            <p class="card-text">รายละเอียด : <%= product.description %></p>
+            <form class="form-group" action="/products/cart/" method="post">
+                <input type="hidden" name="product_id" value="<%=product._id%>">
+                <input type="submit" name="" value="เพิ่มลงตะกร้า" class="btn btn-success">
+          </form>
+          </div>
+          <% }) %>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  </body>
+</html>
