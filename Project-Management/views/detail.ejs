@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+   <%- include layout %>
+    <div class="container">
+        <h1 align="center" class="my-4">detail</h1>
+        <% projects.forEach(function(project){ %>
+            <div align="center"><img src="/images/<%=project.image %>" class="my-4 img-thumbnail" ></div>  
+            <p>
+                <strong>ชื่อโปรเจค :</strong>
+                <%= project.name %>
+            </p>
+            <hr>
+            <p>
+                <strong>รายละเอียด :</strong>
+                <%= project.description %>
+            </p>
+            <hr>  
+            <p>
+                <strong>วันสร้างโปรเจค :</strong>
+                <%= project.date %>
+            </p>
+            <hr>         
+        <% }) %>
+                   
+                  
+  
+    </div>
+   
+  </body>
+
+</html>
