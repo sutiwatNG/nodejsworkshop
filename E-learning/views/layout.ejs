@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <% if(locals.user){ %>
+          <li class="nav-item">
+            <a class="nav-link active" href="/">E-learning</a>
+          </li>
+          <li class="nav-item">
+              <a href="/<%= user.type %>s/classes" class="nav-link">My-Class</a>
+          </li>
+          <li class="nav-item">
+              <a href="/users/logout" class="nav-link">Logout</a>
+          </li>
+          <% } %>
+          <% if (!locals.user) {%>
+        <li class="nav-item">
+          <a class="nav-link active" href="/">E-learning</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/login">Login</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+
+
+  

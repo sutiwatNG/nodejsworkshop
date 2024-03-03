@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-lerning</title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <%- include layout %>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">E-learning System</h1>
+        <hr>
+        <a href="/users/register" class="btn btn-success">สมัครเรียน</a>
+      </div>
+      <% if(locals.user) {%>
+      <h3 align="center">คอร์สเรียน</h3>
+    <% if(locals.classes) {%>
+      
+      <div class="row">
+      <% Object.values(classes).forEach(function(classed){%>
+          <div class="col-sm-4">
+            <div class="card" style="width: 18rem;margin-top:5px">
+              <img class="card-img-top" src="<%= classed.img_url %>">
+              <div class="card-body">
+                <h5 class="card-title">เรื่อง : <%= classed.title %></h5>
+                <p class="card-subtitle mb-2 text-muted">ผู้สอน : <%= classed.instructor %></p>
+                <p class="card-text"><%= classed.description %></p>
+                <form action="/students/classes/register" method="post">
+                  <input type="hidden"  name="student_user" value="<%= user.username %>" >
+                  <input type="hidden"  name="class_id" value="<%= classed.class_id %>" >
+                  <input type="hidden"  name="class_title" value="<%= classed.title %>" >
+                  <input type="submit" class="btn btn-primary" value="เข้าเรียน" >
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        <%}) %>
+        
+      </div>
+      
+    <% } %>
+    <% } %>
+  </div>
+  </body>
+</html>

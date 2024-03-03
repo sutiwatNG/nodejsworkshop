@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ../layout %>
+    <div class="container">
+      <h2 align="center">Class : <%= class_id %></h2>
+      <br>
+
+      <h2 align = "centaer">Add Lesson</h2>
+      <hr>
+       <form class="form-group" action="/instructors/classes/<%= class_id %>/lesson/new" method="post">
+        <div class="form-group">
+            <label for="">บทที่</label>
+            <input type="text" name="lesson_number" value="" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">หัวข้อ</label>
+            <input type="text" name="lesson_title" value="" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">รายละเอียด</label>
+            <textarea name="lesson_body" rows="8" cols="80" class="form-control"></textarea>
+          </div>
+            <input type="submit" name="" value="เพิ่มบทเรียน" class="btn-primary">
+        </form>
+    </div>
+  </body>
+</html>
